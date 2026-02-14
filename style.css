@@ -1,0 +1,192 @@
+/* ===== GLOBAL STYLES ===== */
+:root {
+    --primary-yellow: #FDD835;
+    --secondary-orange: #FF8C00;
+    --accent-purple: #673AB7;
+    --bg-dark: #0a0a0c;
+    --text-light: #e0e0e0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+
+    /* Softer gradient + character */
+    background-image: 
+        url('image_0.png'),
+        linear-gradient(135deg, #2b0f00 0%, #1a001f 50%, #3a1f00 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center bottom, center;
+    background-size: 80%, cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Dark overlay to soften character */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.banner-img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 2px solid var(--primary-yellow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+header h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin: 20px 0 5px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--primary-yellow);
+    text-shadow: 0 0 20px rgba(253, 216, 53, 0.6);
+    animation: glow 2.5s ease-in-out infinite;
+}
+
+header p {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* ===== SECTION LAYOUT ===== */
+section {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    font-size: 2.2rem;
+    border-left: 5px solid var(--primary-yellow);
+    padding-left: 15px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 0 10px var(--primary-yellow);
+}
+
+/* ===== GLASSMORPHISM CARDS ===== */
+.tournament-card, .join-box {
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(253, 216, 53, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    animation: float 6s ease-in-out infinite, border-glow 4s ease-in-out infinite;
+}
+
+.tournament-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-yellow);
+}
+
+.tournament-card h3 {
+    color: var(--primary-yellow);
+    font-size: 2rem;
+    margin-top: 0;
+    text-align: center;
+    text-transform: uppercase;
+    animation: glow 2.5s ease-in-out infinite;
+}
+
+.tournament-card p {
+    font-size: 1.3rem;
+    margin: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+/* ===== LISTS ===== */
+ol, ul {
+    padding-left: 25px;
+    line-height: 1.8;
+    font-size: 1.2rem;
+}
+
+li::marker {
+    color: var(--primary-yellow);
+    font-weight: bold;
+}
+
+/* ===== DISCORD BUTTON ===== */
+.discord-btn-container {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.discord-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--secondary-orange), var(--primary-yellow));
+    color: #000;
+    padding: 18px 45px;
+    border-radius: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 140, 0, 0.4);
+    font-size: 1.2rem;
+}
+
+.discord-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(253, 216, 53, 0.7);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: #888;
+    font-size: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 15px #ffd700, 0 0 30px #ff8c00; }
+  50% { text-shadow: 0 0 25px #ffd700, 0 0 50px #ff8c00; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,180,0,0.3); }
+  50% { box-shadow: 0 0 35px rgba(255,180,0,0.5); }
+}
